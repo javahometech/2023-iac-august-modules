@@ -29,11 +29,12 @@ resource "aws_security_group" "rds" {
   dynamic "ingress" {
     for_each = var.rds_ingress_rules
     content {
-      description = "some description"
-      from_port   = ingress.value.port
-      to_port     = ingress.value.port
-      protocol    = ingress.value.protocol
-      cidr_blocks = ingress.value.cidr_blocks
+      description     = "some description"
+      from_port       = ingress.value.port
+      to_port         = ingress.value.port
+      protocol        = ingress.value.protocol
+      cidr_blocks     = ingress.value.cidr_blocks
+      security_groups = ingress.value.security_groups
     }
   }
 

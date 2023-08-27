@@ -17,9 +17,10 @@ variable "vpc_id" {
 }
 variable "rds_ingress_rules" {
   type = map(object({
-    port        = number
-    protocol    = string
-    cidr_blocks = list(string)
-    description = string
+    port            = number
+    protocol        = string
+    cidr_blocks     = list(string)
+    description     = string
+    security_groups = list(string)
   }))
 }
